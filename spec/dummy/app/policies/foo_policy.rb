@@ -1,3 +1,4 @@
+# encoding: utf-8
 class FooPolicy < Struct.new(:user, :foo)
   class Scope < Struct.new(:user, :scope)
     def resolve
