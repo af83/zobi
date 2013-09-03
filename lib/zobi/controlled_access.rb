@@ -9,15 +9,15 @@ module Zobi
       base.send :include, Pundit
       base.class_eval do
         before_filter :authorize_resource
-
-        def policy_scope scope
-          Pundit.policy_scope!(controlled_access_user, scope)
-        end
-
-        def policy record
-          Pundit.policy!(controlled_access_user, record)
-        end
       end
+    end
+
+    def policy_scope scope
+      Pundit.policy_scope!(controlled_access_user, scope)
+    end
+
+    def policy record
+      Pundit.policy!(controlled_access_user, record)
     end
 
     protected
