@@ -21,7 +21,7 @@ gem 'zobi'
 Next, include Zobi module in your controller and set modules you require to include :
 
 ```ruby
-include Zobi
+extend Zobi
 behaviors :inherited, :scoped, :included, :paginated, :controlled_access, :decorated
 ```
 
