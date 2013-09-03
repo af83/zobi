@@ -26,9 +26,9 @@ module Zobi
     def authorize_resource
       case action_name
       when build_resources_authorized
-        authorize build_resource
+        authorize controlled_access_build_resource
       when resources_authorized
-        authorize resource
+        authorize controlled_access_resource
       end
     end
 
@@ -52,6 +52,16 @@ module Zobi
 
     def resources_authorized
       /edit|update|show|destroy/
+    end
+
+    def controlled_access_build_resource
+      return build_resource if respond_to?(:build_resource)
+      zobi_resource_class.new params[zobi_resource_class.to_s.to_sym]
+    end
+
+    def controlled_access_resource
+      return resource if respond_to?(:resource)
+      zobi_resource_class.find(params[:id])
     end
   end
 end
