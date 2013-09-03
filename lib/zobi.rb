@@ -13,9 +13,9 @@ module Zobi
 
   def behaviors *behaviors
     behaviors.each do |behavior|
-      self.send(:include, behavior_module(behavior))
+      send(:include, behavior_module(behavior))
     end
-    self.send(:include, ::Zobi::InstanceMethods)
+    send(:include, ::Zobi::InstanceMethods)
   end
 
   def behavior_module name
@@ -34,7 +34,7 @@ module Zobi
       c = zobi_resource_class
       BEHAVIORS.each do |behavior|
         next unless self.class.ancestors.include?(self.class.behavior_module(behavior))
-        c = self.send :"#{behavior}_collection", c
+        c = send :"#{behavior}_collection", c
       end
       @collection = c
     end
