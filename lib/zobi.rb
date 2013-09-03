@@ -25,24 +25,19 @@ module Zobi
   end
 
   module ClassMethods
-
     def behaviors *behaviors
       send(:include, ::Zobi::Hidden)
       behaviors.each do |behavior|
         send(:include, "Zobi::#{behavior.to_s.camelize}".constantize)
       end
     end
-
   end
 
   module Hidden
-
     BEHAVIORS.each do |behavior|
       define_method :"#{behavior}_collection" do |c|
         c
       end
     end
-
   end
-
 end
