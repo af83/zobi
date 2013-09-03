@@ -13,18 +13,15 @@ module Zobi
 
   def self.included base
     base.extend ClassMethods
+  end
 
-    base.class_eval do
-      def collection
-        return @collection if @collection
-        c = resource_class
-        BEHAVIORS.each do |behavior|
-          c = self.send :"#{behavior}_collection", c
-        end
-        @collection = c
-      end
+  def collection
+    return @collection if @collection
+    c = resource_class
+    BEHAVIORS.each do |behavior|
+      c = self.send :"#{behavior}_collection", c
     end
-
+    @collection = c
   end
 
   module ClassMethods
