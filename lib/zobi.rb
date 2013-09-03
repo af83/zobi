@@ -19,7 +19,7 @@ module Zobi
     return @collection if @collection
     c = resource_class
     BEHAVIORS.each do |behavior|
-      c = self.send :"#{behavior}_collection", c
+      c = send :"#{behavior}_collection", c
     end
     @collection = c
   end
@@ -27,9 +27,9 @@ module Zobi
   module ClassMethods
 
     def behaviors *behaviors
-      self.send(:include, ::Zobi::Hidden)
+      send(:include, ::Zobi::Hidden)
       behaviors.each do |behavior|
-        self.send(:include, "Zobi::#{behavior.to_s.camelize}".constantize)
+        send(:include, "Zobi::#{behavior.to_s.camelize}".constantize)
       end
     end
 
