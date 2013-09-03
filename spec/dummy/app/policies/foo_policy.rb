@@ -9,7 +9,7 @@ class FooPolicy < Struct.new(:user, :foo)
     end
   end
 
-  [:new, :create, :edit, :update, :destroy].each do |method|
+  [:index, :new, :create, :edit, :update, :destroy].each do |method|
     define_method :"#{method}?" do
       able?
     end
