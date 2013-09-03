@@ -22,18 +22,22 @@ module Zobi
     "Zobi::#{name.to_s.camelize}".constantize
   end
 
+  def behavior_included? name
+    ancestors.include?(behavior_module(name))
+  end
+
   module InstanceMethods
 
     def zobi_resource_class
-      return resource_class if respond_to?(:resource_class)
-      self.class.name.demodulize.gsub('Controller', '').singularize
+      return resource_class if self.class.behavior_included?(:inherited)
+      self.class.name.demodulize.gsub('Controller', '').singularize.constantize
     end
 
     def collection
       return @collection if @collection
       c = zobi_resource_class
       BEHAVIORS.each do |behavior|
-        next unless self.class.ancestors.include?(self.class.behavior_module(behavior))
+        next unless self.class.behavior_included?(behavior)
         c = send :"#{behavior}_collection", c
       end
       @collection = c
