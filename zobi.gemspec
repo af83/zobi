@@ -16,7 +16,8 @@ Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.require_path = 'lib'
   s.add_dependency "rails", "~>4.0.0"
-  s.add_development_dependency "rspec", "~>2.14"
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "sqlite3"
   s.add_development_dependency "rake"
   s.add_development_dependency "inherited_resources", "~>1.4.1"
   s.add_development_dependency "has_scope", "~>0.6.0.rc"
