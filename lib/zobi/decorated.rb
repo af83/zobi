@@ -22,10 +22,7 @@ module Zobi
     private
 
     def decorated_collection c
-      collection_decorator_class.decorate(
-        c,
-        with: decorator_class
-      )
+      collection_decorator_class.decorate(c, with: decorator_class)
     end
 
     def resource
