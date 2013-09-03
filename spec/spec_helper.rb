@@ -1,9 +1,10 @@
 # encoding: utf-8
 
-require 'action_controller'
-require 'zobi'
+ENV["RAILS_ENV"] ||= 'test'
 
-class FakeController < ActionController::Base
-  include Zobi
-  behaviors *[]
-end
+require File.expand_path("../dummy/config/environment", __FILE__)
+require 'rspec/rails'
+
+require 'action_controller'
+require 'inherited_resources'
+require 'zobi'
