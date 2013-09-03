@@ -4,18 +4,19 @@ module Zobi
   # This module help to manage control access on your collection using pundit.
   #
   module ControlledAccess
-    extend ActiveSupport::Concern
 
-    included do
-      self.send :include, Pundit
-      before_filter :authorize_resource
+    def self.included base
+      base.send :include, Pundit
+      base.class_eval do
+        before_filter :authorize_resource
 
-      def policy_scope scope
-        Pundit.policy_scope!(controlled_access_user, scope)
-      end
+        def policy_scope scope
+          Pundit.policy_scope!(controlled_access_user, scope)
+        end
 
-      def policy record
-        Pundit.policy!(controlled_access_user, record)
+        def policy record
+          Pundit.policy!(controlled_access_user, record)
+        end
       end
     end
 

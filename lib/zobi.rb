@@ -9,19 +9,20 @@ require 'zobi/scoped'
 require 'zobi/pagination_responder'
 
 module Zobi
-  extend ActiveSupport::Concern
-
   BEHAVIORS = [:inherited, :scoped, :included, :paginated, :controlled_access, :decorated].freeze
 
-  included do
+  def self.included base
+    base.extend ClassMethods
 
-    def collection
-      return @collection if @collection
-      c = resource_class
-      BEHAVIORS.each do |behavior|
-        c = self.send :"#{behavior}_collection", c
+    base.class_eval do
+      def collection
+        return @collection if @collection
+        c = resource_class
+        BEHAVIORS.each do |behavior|
+          c = self.send :"#{behavior}_collection", c
+        end
+        @collection = c
       end
-      @collection = c
     end
 
   end

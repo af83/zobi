@@ -4,10 +4,9 @@ module Zobi
   # This module helps you to paginate your collection using kaminari
   #
   module Paginated
-    extend ActiveSupport::Concern
 
-    included do
-      self.send :responders, :pagination
+    def self.included base
+      base.send :responders, :pagination
     end
 
     protected
