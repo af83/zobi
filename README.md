@@ -12,7 +12,7 @@ Zobi helps you to orchestrate your controller behaviors using the following gems
 How to use it?
 --------------
 
-Add it in the `Gemfile` and run `bundle update`:
+Add it in the `Gemfile` and run `bundle install`:
 
 ```ruby
 gem 'zobi'
