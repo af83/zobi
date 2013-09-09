@@ -11,6 +11,10 @@ require 'zobi/pagination_responder'
 module Zobi
   BEHAVIORS = [:inherited, :scoped, :included, :paginated, :controlled_access, :decorated].freeze
 
+  def self.extended base
+    base.helper_method :collection, :resource
+  end
+
   def behaviors *behaviors
     behaviors.each do |behavior|
       send(:include, behavior_module(behavior))
