@@ -1,21 +1,11 @@
 # encoding: utf-8
 
-require 'zobi/inherited'
-require 'zobi/decorated'
-require 'zobi/controlled_access'
-require 'zobi/included'
-require 'zobi/paginated'
-require 'zobi/scoped'
-require 'zobi/pagination_responder'
+Dir["#{File.dirname(__FILE__)}/zobi/**/*.rb"].each { |f| require f }
 
 module Zobi
   BEHAVIORS = [:inherited, :scoped, :included, :paginated, :controlled_access, :decorated].freeze
 
   def self.extended base
-    # FIXME UGLY.
-    if defined?(Draper) && !defined?(Zobi::CollectionDecorator)
-      require 'zobi/decorators/collection_decorator'
-    end
     base.helper_method :collection, :resource
   end
 
