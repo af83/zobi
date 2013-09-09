@@ -16,7 +16,7 @@ module Zobi
   end
 
   def behaviors *behaviors
-    behaviors.each do |behavior|
+    (BEHAVIORS & behaviors).each do |behavior|
       send(:include, behavior_module(behavior))
     end
     send(:include, ::Zobi::InstanceMethods)
