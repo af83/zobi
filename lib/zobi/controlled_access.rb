@@ -34,9 +34,17 @@ module Zobi
 
     def controlled_access_user
       if self.class.to_s.split('::').first == 'Admin'
-        current_administrator
+        begin
+          current_administrator
+        rescue NameError
+          raise "You need to define the current_administrator method.".inspect
+        end
       else
-        current_user
+        begin
+          current_user
+        rescue NameError
+          raise "You need to define the current_user method.".inspect
+        end
       end
     end
 
