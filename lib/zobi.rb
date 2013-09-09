@@ -44,7 +44,7 @@ module Zobi
         next unless self.class.behavior_included?(behavior)
         c = send :"#{behavior}_collection", c
       end
-      @collection = c
+      @collection = (c.is_a?(Class) ? c.all : c)
     end
 
   end
