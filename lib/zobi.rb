@@ -12,6 +12,10 @@ module Zobi
   BEHAVIORS = [:inherited, :scoped, :included, :paginated, :controlled_access, :decorated].freeze
 
   def self.extended base
+    # FIXME UGLY.
+    if defined?(Draper) && !defined?(Zobi::CollectionDecorator)
+      require 'zobi/decorators/collection_decorator'
+    end
     base.helper_method :collection, :resource
   end
 
