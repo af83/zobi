@@ -21,6 +21,7 @@ module Zobi
     module Hidden
       protected
 
+      # This method can be overwritted in controllers
       def permitted_params
         @permitted_params ||= parameters_class.new(self, params).params
       end
@@ -28,7 +29,12 @@ module Zobi
       private
 
       def parameters_class
-        "Parameters::#{self.class.to_s.sub('Controller', '').singularize}".constantize
+        klass = "Parameters::#{self.class.to_s.sub('Controller', '').singularize}"
+        klass.constantize
+      rescue NameError
+        raise <<EOT
+You need to define the class #{klass} or overwrite the permitted_params method in your controller.
+EOT
       end
     end
 
