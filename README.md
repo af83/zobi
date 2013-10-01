@@ -48,7 +48,7 @@ This module only works with ActiveRecord because it uses the (Eager Loading Asso
 This module uses [kaminari](https://github.com/amatsuda/kaminari) gem.
 
 
-### Contorlled Access
+### Controlled Access
 
 This module uses [pundit](https://github.com/elabs/pundit) and [devise](https://github.com/plataformatec/devise) gems.
 
