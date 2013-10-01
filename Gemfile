@@ -15,4 +15,6 @@ group :development, :test do
   gem 'devise',               '~> 3.1.0'
   gem 'jquery-rails'
   gem 'faker'
+  gem 'pry-rails'
+  gem 'database_cleaner'
 end

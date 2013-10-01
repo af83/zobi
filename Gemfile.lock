@@ -35,6 +35,8 @@ GEM
     atomic (1.1.13)
     bcrypt-ruby (3.1.2)
     builder (3.1.4)
+    coderay (1.0.9)
+    database_cleaner (1.1.1)
     devise (3.1.0)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -73,11 +75,18 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.24)
     minitest (4.7.5)
     multi_json (1.7.9)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     pundit (0.2.1)
       activesupport (>= 3.0.0)
     rack (1.5.2)
@@ -114,6 +123,7 @@ GEM
     simple_form (3.0.0.rc)
       actionpack (>= 4.0.0.rc1, < 4.1)
       activemodel (>= 4.0.0.rc1, < 4.1)
+    slop (3.4.6)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -139,6 +149,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  database_cleaner
   devise (~> 3.1.0)
   draper (~> 1.2.1)
   faker
@@ -147,6 +158,7 @@ DEPENDENCIES
   inherited_resources (~> 1.4.1)
   jquery-rails
   kaminari (~> 0.14.1)
+  pry-rails
   pundit (~> 0.2.1)
   rake
   rspec-rails
