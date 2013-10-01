@@ -1,22 +1,26 @@
 # encoding: utf-8
-class FooPolicy < Struct.new(:user, :foo)
-  class Scope < Struct.new(:user, :scope)
-    def resolve
-      if user.admin?
-        scope
-      else
-        scope.where(public: true)
-      end
-    end
-  end
 
-  [:index, :new, :create, :edit, :update, :destroy].each do |method|
-    define_method :"#{method}?" do
+class FooPolicy < Struct.new(:user, :policy)
+
+  %w{new? create? edit? update? destroy?}.each do |m|
+    define_method m do
       able?
     end
   end
 
+  protected
+
   def able?
-    user.admin?
+    user && user.admin?
+  end
+
+  class Scope < Struct.new(:user, :scope)
+    def resolve
+      if user && user.admin?
+        scope
+      else
+        scope.where(published: true)
+      end
+    end
   end
 end

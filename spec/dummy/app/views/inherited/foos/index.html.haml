@@ -1,0 +1,12 @@
+%h2 Listing Foos
+
+= link_to 'New', new_resource_path
+%ul
+  - collection.each do |r|
+    %li
+      = r.name
+      = r.category
+      = r.published
+      = link_to 'Edit', edit_resource_path(r)
+      = link_to 'Destroy', resource_path(r), method: :delete
+

@@ -1,0 +1,19 @@
+%h2 Listing Foos
+
+= form_tag url_for(), method: :get do
+  = label_tag :name
+  = text_field_tag :by_name
+  = label_tag :category
+  = text_field_tag :by_category
+  = label_tag :order
+  = select_tag 'by_order[order]', options_for_select([:created_at, :name, :category])
+  = select_tag 'by_order[direction]', options_for_select([:asc, :desc])
+  = submit_tag
+
+%ul
+  - collection.each do |r|
+    %li
+      = r.name
+      = r.category
+      = r.published
+

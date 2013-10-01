@@ -1,0 +1,8 @@
+%h2 Listing Foos
+
+%ul
+  - collection.each do |r|
+    %li
+      = r.name_and_category
+      = r.published
+      = link_to 'Show', resource_path(r)

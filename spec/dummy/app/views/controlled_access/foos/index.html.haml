@@ -1,0 +1,16 @@
+%h2 Listing Foos
+
+= link_to 'New', new_controlled_access_foo_path
+%ul
+  - collection.each do |r|
+    %li
+      = r.name
+      = r.category
+      = r.published
+      - if r.published
+        = link_to 'unpublish', publish_controlled_access_foo_path(r), method: :put
+      - else
+        = link_to 'Publish', publish_controlled_access_foo_path(r), method: :put
+      = link_to 'Edit', edit_controlled_access_foo_path(r)
+      = link_to 'Destroy', controlled_access_foo_path(r), method: :delete
+
