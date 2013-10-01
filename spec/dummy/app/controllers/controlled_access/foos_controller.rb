@@ -12,15 +12,18 @@ class ControlledAccess::FoosController < ApplicationController
   end
 
   def create
+    redirect_to controlled_access_foos_path
   end
 
   def edit
   end
 
   def update
+    redirect_to controlled_access_foos_path
   end
 
   def destroy
+    redirect_to controlled_access_foos_path
   end
 
   # FIXME No acl here…
