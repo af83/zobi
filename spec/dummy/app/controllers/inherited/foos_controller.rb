@@ -9,8 +9,4 @@ class Inherited::FoosController < ApplicationController
   def update
     update! { collection_path }
   end
-
-  def permitted_params
-    params.permit(foo: [:name, :category, :published])
-  end
 end
