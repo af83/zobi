@@ -18,4 +18,5 @@ group :development, :test do
   gem 'pry-rails'
   gem 'database_cleaner'
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
