@@ -17,4 +17,5 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'database_cleaner'
+  gem 'sqlite3'
 end
