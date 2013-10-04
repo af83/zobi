@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Scoped::FoosController < ApplicationController
   extend Zobi
   behaviors :scoped

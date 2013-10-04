@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ControlledAccess::FoosController < ApplicationController
   extend Zobi
   behaviors :controlled_access

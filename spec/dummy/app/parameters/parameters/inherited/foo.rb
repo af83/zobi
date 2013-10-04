@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Parameters
   module Inherited
     class Foo < Zobi::ParametersSanitizer

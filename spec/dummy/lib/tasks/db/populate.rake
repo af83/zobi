@@ -1,3 +1,4 @@
+# encoding: utf-8
 namespace :db do
   desc 'Create some foos'
   task :populate => [:environment] do

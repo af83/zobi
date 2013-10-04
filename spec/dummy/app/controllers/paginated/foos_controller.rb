@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Paginated::FoosController < ApplicationController
   extend Zobi
   behaviors :paginated
