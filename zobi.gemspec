@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rake"
+  s.add_development_dependency "responders", "~>1.0.0"
   s.add_development_dependency "inherited_resources", "~>1.4.1"
   s.add_development_dependency "has_scope", "~>0.6.0.rc"
   s.add_development_dependency "kaminari", "~>0.14.1"
