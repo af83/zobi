@@ -29,6 +29,8 @@ module Zobi
         authorize controlled_access_build_resource
       when resources_authorized
         authorize controlled_access_resource
+      else
+        authorize zobi_resource_class
       end
     end
 
