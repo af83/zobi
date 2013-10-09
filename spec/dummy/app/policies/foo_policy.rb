@@ -2,6 +2,10 @@
 
 class FooPolicy < Struct.new(:user, :policy)
 
+  def index?
+    true
+  end
+
   %w{new? create? edit? update? destroy?}.each do |m|
     define_method m do
       able?
