@@ -18,7 +18,8 @@ Add it in the `Gemfile` and run `bundle install`:
 gem 'zobi'
 ```
 
-Next, include Zobi module in your controller and set modules you require to include :
+Next, include Zobi module in your controller and set modules you require to
+include :
 
 ```ruby
 extend Zobi
@@ -30,7 +31,8 @@ Available modules
 
 ### Inherited
 
-This module uses [inherited_resources](https://github.com/josevalim/inherited_resources) gem.
+This module uses
+[inherited_resources](https://github.com/josevalim/inherited_resources) gem.
 
 
 ### Scoped
@@ -40,7 +42,8 @@ This module uses [has_scope](https://github.com/plataformatec/has_scope) gem.
 
 ### Included
 
-This module only works with ActiveRecord because it uses the [Eager Loading Associations of Active Record](http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations).
+This module only works with ActiveRecord because it uses the
+[Eager Loading Associations of Active Record](http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations).
 
 
 ### Paginated
@@ -50,12 +53,35 @@ This module uses [kaminari](https://github.com/amatsuda/kaminari) gem.
 
 ### Controlled Access
 
-This module uses [pundit](https://github.com/elabs/pundit) and [devise](https://github.com/plataformatec/devise) gems.
+This module uses [pundit](https://github.com/elabs/pundit) and
+[devise](https://github.com/plataformatec/devise) gems.
 
 
 ### Decorated
 
-This module uses [draper](https://github.com/drapergem/draper) gem and has a dependency on Inherited modules for now.
+This module uses [draper](https://github.com/drapergem/draper) gem and has a
+dependency on Inherited modules for now.
+
+#### Collection decorator
+
+By default Zobi will try to discover the collectio decorator class to use using
+the current namespece.
+
+For example, given a controller named Admin::User::AddressesController, Zobi
+will try to find the appropriate decorator class in this order :
+
+```
+Admin::User::AddressesDecorator
+Admin::AddressesDecorator
+AdressesDecorator
+Admin::User::CollectionDecorator
+Admin::CollectionDecorator
+CollectionDecorator
+```
+
+If this is not the way you organize your decorators, you can override this
+behavior by defining a method called `collection_decorator_class` which returns
+the decorator class to use.
 
 
 Developing
