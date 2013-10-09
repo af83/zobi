@@ -9,10 +9,7 @@ module Zobi
     protected
 
     def collection_decorator_class
-      "#{self.class.to_s.split('::').first}::CollectionDecorator"
-        .constantize
-    rescue NameError
-      Zobi::CollectionDecorator
+      discover_collection_decorator || Zobi::CollectionDecorator
     end
 
     def decorator_class
@@ -35,6 +32,31 @@ EOT
 
     def resource
       @resource ||= decorator_class.decorate super
+    end
+
+    # FIXME Ugly…
+    def discover_collection_decorator
+      decorators = ['CollectionDecorator']
+      original = self.class.to_s.gsub('Controller', 'Decorator')
+      base_name = original.demodulize
+      ns = self.class.to_s.split('::')
+      ns.pop
+      ns.size.times do |i|
+        decorators << (ns[0..i] << 'CollectionDecorator').join('::')
+      end
+      decorators << base_name
+      ns.size.times do |i|
+        decorators << (ns[0..i] << base_name).join('::')
+      end
+      decorators << original
+      decorators.uniq.reverse.each do |decorator|
+        begin
+          return decorator.constantize
+        rescue NameError
+          next
+        end
+      end
+      nil
     end
 
   end
