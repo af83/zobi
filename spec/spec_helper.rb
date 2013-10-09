@@ -21,3 +21,5 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+require 'fixtures/fugu_controller'

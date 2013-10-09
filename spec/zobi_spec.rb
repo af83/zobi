@@ -33,4 +33,18 @@ describe Zobi do
     end
   end
 
+  describe 'namespaces_from_class' do
+    it 'should return namespaces of the given class' do
+      Zobi.namespaces_from_class(Animals::Fishes::FugusController)
+        .should eq(['::Animals::Fishes', '::Animals', '::'])
+    end
+  end
+
+  describe 'classes_for_namespaces' do
+    it 'should return a class per namespace' do
+      Zobi.classes_for_namespaces(
+        ['::Animals::Fishes', '::Animals', '::'], 'FooBar')
+        .should eq(['::Animals::Fishes::FooBar', '::Animals::FooBar', '::FooBar'])
+    end
+  end
 end

@@ -9,7 +9,7 @@ module Zobi
     protected
 
     def collection_decorator_class
-      discover_collection_decorator || Zobi::CollectionDecorator
+      Decorated.discover_collection_decorator self.class
     end
 
     def decorator_class
@@ -34,29 +34,29 @@ EOT
       @resource ||= decorator_class.decorate super
     end
 
-    # FIXME Ugly…
-    def discover_collection_decorator
-      decorators = ['CollectionDecorator']
-      original = self.class.to_s.gsub('Controller', 'Decorator')
-      base_name = original.demodulize
-      ns = self.class.to_s.split('::')
-      ns.pop
-      ns.size.times do |i|
-        decorators << (ns[0..i] << 'CollectionDecorator').join('::')
-      end
-      decorators << base_name
-      ns.size.times do |i|
-        decorators << (ns[0..i] << base_name).join('::')
-      end
-      decorators << original
-      decorators.uniq.reverse.each do |decorator|
-        begin
-          return decorator.constantize
-        rescue NameError
-          next
+    class << self
+
+      def discover_collection_decorator klass
+        collection_decorators_discovery(klass).each do |decorator|
+          begin
+            return decorator.constantize
+          rescue NameError
+            next
+          end
         end
+        Zobi::CollectionDecorator
       end
-      nil
+
+      def collection_decorators_discovery klass
+        decorators = []
+        ns = Zobi.namespaces_from_class klass
+        decorators << Zobi.classes_for_namespaces(
+          ns, klass.to_s.demodulize.gsub('Controller', 'Decorator')
+        )
+        decorators << Zobi.classes_for_namespaces(ns, 'CollectionDecorator')
+        decorators.flatten
+      end
+
     end
 
   end
