@@ -42,22 +42,4 @@ module Zobi
     end
 
   end
-
-  class << self
-
-    def namespaces_from_class klass
-      last = ""
-      ns = klass.to_s.split('::')
-      ns.pop
-      ns.map{|i| last += "::#{i}"}.reverse.push '::'
-    end
-
-    def classes_for_namespaces namespaces, base_name
-      namespaces.map{|ns|
-        "#{ns == '::' ? ns : "#{ns}::"}#{base_name}"
-      }
-    end
-
-  end
-
 end

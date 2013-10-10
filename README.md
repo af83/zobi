@@ -64,11 +64,13 @@ dependency on Inherited modules for now.
 
 #### Collection decorator
 
-By default Zobi will try to discover the collectio decorator class to use using
-the current namespece.
+By default Zobi will try to discover the decorator class to use using the
+current namespece.
 
 For example, given a controller named Admin::User::AddressesController, Zobi
 will try to find the appropriate decorator class in this order :
+
+Collection :
 
 ```
 Admin::User::AddressesDecorator
@@ -79,9 +81,20 @@ Admin::CollectionDecorator
 CollectionDecorator
 ```
 
+Resource :
+
+```
+Admin::User::AddressDecorator
+Admin::AddressDecorator
+AdressDecorator
+Admin::User::ResourceDecorator
+Admin::ResourceDecorator
+ResourceDecorator
+```
+
 If this is not the way you organize your decorators, you can override this
-behavior by defining a method called `collection_decorator_class` which returns
-the decorator class to use.
+behavior by defining a method called `collection_decorator_class` or
+`decorator_class` which returns the decorator class to use.
 
 
 Developing
