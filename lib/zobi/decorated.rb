@@ -6,6 +6,10 @@ module Zobi
   #
   module Decorated
 
+    def resource
+      @resource ||= decorator_class.decorate super
+    end
+
     protected
 
     def collection_decorator_class
@@ -23,10 +27,6 @@ module Zobi
         (c.is_a?(Class) ? c.all : c),
         with: decorator_class
       )
-    end
-
-    def resource
-      @resource ||= decorator_class.decorate super
     end
   end
 end
