@@ -34,15 +34,15 @@ Available modules
 This module uses
 [inherited_resources](https://github.com/josevalim/inherited_resources) gem.
 
-This module deal with String Parameters using Parameters classes.
+This module deals with String Parameters using Parameters classes.
 
-A Parameters inherit from Zobi::ParametersSanitizer, and should define the list
+A Parameters inherits from Zobi::ParametersSanitizer, and should define the list
 of parameters and nested parameters to accept.
 
-If you controller is namespaced, you should define the `resource_type` method to
-override the generic behavior.
+If your controller is namespaced, you should define the `resource_type` method to
+override its generic behavior.
 
-If you model is namespaces, you should define the defaults resource_class for
+If your model is namespaced, you should define the defaults resource_class for
 Inherited Resource, ie : `defaults resource_class: ::User::Address`
 
 Here is an example :
@@ -71,7 +71,7 @@ module Parameters
 end
 ```
 
-By default Parameters class are discovered using the controller namespace.
+By default, Parameters class are discovered using the controller namespace.
 Given a `User::AddressesController`, Zobi will search for
 `Parameters::User::Address` class.
 
@@ -107,7 +107,7 @@ dependency on Inherited modules for now.
 
 #### Collection decorator
 
-By default Zobi will try to discover the decorator class to use using the
+By default, Zobi will try to discover the decorator class to use using the
 current namespece.
 
 For example, given a controller named Admin::User::AddressesController, Zobi
