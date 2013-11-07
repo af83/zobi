@@ -48,8 +48,8 @@ Inherited Resource, ie : `defaults resource_class: ::User::Address`
 Here is an example :
 
 ``` ruby
-module Parameters
-  class Address < Zobi::ParametersSanitizer
+module User
+  class AddressParameters < Zobi::ParametersSanitizer
 
     # Optional, usefull for a namespaced controller, User::AddressesController
     # here.
@@ -73,7 +73,7 @@ end
 
 By default, Parameters class are discovered using the controller namespace.
 Given a `User::AddressesController`, Zobi will search for
-`Parameters::User::Address` class.
+`User::AddressParameters` class.
 
 If you don't want to use Parameters class, you can define the `permitted_params`
 in your controller and perform custom filtering.

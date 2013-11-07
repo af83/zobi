@@ -29,7 +29,7 @@ module Zobi
       private
 
       def parameters_class
-        klass = "Parameters::#{self.class.to_s.sub('Controller', '').singularize}"
+        klass = "#{self.class.to_s.sub('Controller', '').singularize}Parameters"
         klass.constantize
       rescue NameError
         raise <<EOT

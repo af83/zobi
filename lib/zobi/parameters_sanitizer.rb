@@ -65,7 +65,7 @@ module Zobi
     # @return [Symbol] The resource name to be required
     #
     def resource_type
-      self.class.to_s.demodulize.underscore.to_sym
+      self.class.to_s.demodulize.gsub('Parameters', '').underscore.to_sym
     end
   end
 end
