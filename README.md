@@ -51,7 +51,7 @@ Here is an example :
 module Parameters
   class Address < Zobi::ParametersSanitizer
 
-    # Optional, usefull for a namespaced controller, User::AddresseeController
+    # Optional, usefull for a namespaced controller, User::AddressesController
     # here.
     def resource_type
       :user_address
