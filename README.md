@@ -47,7 +47,7 @@ Inherited Resource, ie : `defaults resource_class: ::User::Address`
 
 Here is an example :
 
-```
+``` ruby
 module Parameters
   class Address < Zobi::ParametersSanitizer
 
@@ -115,7 +115,7 @@ will try to find the appropriate decorator class in this order :
 
 Collection :
 
-```
+``` ruby
 Admin::User::AddressesDecorator
 Admin::AddressesDecorator
 AdressesDecorator
@@ -126,7 +126,7 @@ CollectionDecorator
 
 Resource :
 
-```
+``` ruby
 Admin::User::AddressDecorator
 Admin::AddressDecorator
 AdressDecorator
@@ -140,12 +140,11 @@ behavior by defining a method called `collection_decorator_class` or
 `decorator_class` which returns the decorator class to use.
 
 
-Developing
-----------
+# Developing
 
 Launch test suite :
 
-```
+``` console
 cd spec/dummy
 bundle exec rake db:test:prepare
 cd ../..
@@ -154,14 +153,13 @@ bundle exec rspec
 
 Launch the dummy app :
 
-```
+``` console
 cd spec/dummy
 bundle exec rake db:migrate
 bundle exec rails s
 ```
 
-Credits
--------
+# Credits
 
 Copyright (c) 2013 af83
 
