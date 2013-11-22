@@ -105,8 +105,6 @@ This module uses [pundit](https://github.com/elabs/pundit) and
 This module uses [draper](https://github.com/drapergem/draper) gem and has a
 dependency on Inherited modules for now.
 
-#### Collection decorator
-
 By default, Zobi will try to discover the decorator class to use using the
 current namespece.
 
@@ -158,6 +156,11 @@ cd spec/dummy
 bundle exec rake db:migrate
 bundle exec rails s
 ```
+
+# Versioning
+
+We decided to follow rails versions to simplify update of Zobi when you want to
+upgrade rails.
 
 # Credits
 
