@@ -16,7 +16,7 @@ How to use it?
 Add it in your `Gemfile` and run `bundle install`:
 
 ```ruby
-gem 'zobi'
+gem 'zobi', '~> 4.0.0.rc1'
 ```
 
 Next, include Zobi module in your controller and set modules you want to
@@ -83,27 +83,12 @@ in your controller and perform custom filtering.
 
 This module uses [has_scope](https://github.com/plataformatec/has_scope) gem.
 
-# TODO: EXAMPLE OF FILTERS VIEW.
 
 ### Included
 
 This module only works with ActiveRecord because it uses the
 [Eager Loading Associations of Active Record](http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations).
 
-It allows to fetch object relations using as few queries as possible.
-
-For example, if you have a `Band` model, which has many `Member`, you can limit
-database queries by adding in your `BandsController`:
-
-```ruby
-BandsController < ApplicationController
-  behaviors :included
-
-  def includes
-    [:members]
-  end
-end
-```
 
 ### Paginated
 
@@ -153,10 +138,6 @@ If this is not the way you organize your decorators, you can override this
 behavior by defining a method called `collection_decorator_class` or
 `decorator_class` which returns the decorator class to use.
 
-# Versioning
-
-We decided to follow rails versions to simplify update of Zobi when you want to
-upgrade rails.
 
 # Developing
 
@@ -177,16 +158,10 @@ bundle exec rake db:migrate
 bundle exec rails s
 ```
 
-# Note on Patches/Pull Requests
+# Versioning
 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a future version
-unintentionally.
-* Commit, do not mess with rakefile, version, or history. (if you want to have
-your own version, that is fine but bump version in a commit by itself in another
-branch so I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+We decided to follow rails versions to simplify update of Zobi when you want to
+upgrade rails.
 
 # Credits
 
