@@ -3,6 +3,7 @@ Zobi
 
 Zobi helps you to orchestrate your controller behaviors using the following gems :
 
+- [**devise**](https://github.com/plataformatec/devise)
 - [**inherited_resources**](https://github.com/josevalim/inherited_resources)
 - [**has_scope**](https://github.com/plataformatec/has_scope)
 - [**kaminari**](https://github.com/amatsuda/kaminari)
@@ -12,13 +13,13 @@ Zobi helps you to orchestrate your controller behaviors using the following gems
 How to use it?
 --------------
 
-Add it in the `Gemfile` and run `bundle install`:
+Add it in your `Gemfile` and run `bundle install`:
 
 ```ruby
 gem 'zobi'
 ```
 
-Next, include Zobi module in your controller and set modules you require to
+Next, include Zobi module in your controller and set modules you want to
 include :
 
 ```ruby
