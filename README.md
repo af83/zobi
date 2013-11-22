@@ -16,7 +16,7 @@ How to use it?
 Add it in your `Gemfile` and run `bundle install`:
 
 ```ruby
-gem 'zobi', '~> 4.0.0.rc1'
+gem 'zobi', '~> 4.0.0.rc2'
 ```
 
 Next, include Zobi module in your controller and set modules you want to

@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
   s.email        = "kevinlacointe@gmail.com"
   s.homepage     = "https://github.com/af83/zobi"
   s.summary      = "Keep your rails controllers DRY."
-  s.description  = "Keep your rails controllers DRY while using inherited_resources, has_scope, kaminari, pundit and draper"
+  s.description  = "Keep your rails controllers DRY while using devise, inherited_resources, has_scope, kaminari, pundit and draper"
   s.license      = 'MIT'
-  s.files        = `git ls-files README.md lib LICENSE`.split("\n")
+  s.files        = `git ls-files README.md lib app LICENSE`.split("\n")
   s.platform     = Gem::Platform::RUBY
   s.require_path = 'lib'
   s.add_dependency "rails", "~>4.0.0"
