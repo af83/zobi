@@ -1,3 +1,4 @@
+![Zobi Logo](http://farm4.staticflickr.com/3708/10997269994_4c58bf8dd3_m.jpg)
 Zobi
 ====
 
