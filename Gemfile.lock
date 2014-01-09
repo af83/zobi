@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zobi (4.0.0.beta1)
+    zobi (4.0.0)
       rails (~> 4.0.0)
 
 GEM
@@ -76,7 +76,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.2)
-    mime-types (1.25)
+    mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.0)
     orm_adapter (0.4.0)
@@ -124,7 +124,7 @@ GEM
       actionpack (>= 4.0.0.rc1, < 4.1)
       activemodel (>= 4.0.0.rc1, < 4.1)
     slop (3.4.6)
-    sprockets (2.10.0)
+    sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
