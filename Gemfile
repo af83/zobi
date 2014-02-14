@@ -11,7 +11,7 @@ group :development, :test do
   gem 'pundit',               '~>0.2.1'
   gem 'draper',               '~>1.2.1'
   gem 'haml-rails',           '~> 0.4'
-  gem 'simple_form',          '~> 3.0.0.rc'
+  gem 'simple_form',          '~> 3.0.0'
   gem 'devise',               '~> 3.1.0'
   gem 'jquery-rails'
   gem 'faker'
