@@ -12,8 +12,7 @@ module Zobi
     protected
 
     def filters_list
-      return [] unless scopes_conf = scopes_configuration
-      scopes_conf.keys
+      Hash(scopes_configuration).keys
     end
 
     private
