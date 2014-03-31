@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.files        = `git ls-files README.md lib app LICENSE`.split("\n")
   s.platform     = Gem::Platform::RUBY
   s.require_path = 'lib'
-  s.add_dependency "rails", "~>4.0.0"
-  s.add_development_dependency "rspec-rails"
-  s.add_development_dependency "sqlite3"
-  s.add_development_dependency "rake"
+  s.add_dependency "rails", "~>4.0"
+  s.add_development_dependency "rspec-rails", "~>2.14"
+  s.add_development_dependency "sqlite3", "~>1.3"
+  s.add_development_dependency "rake", "~>10.1"
   s.add_development_dependency "responders", "~>1.0"
   s.add_development_dependency "inherited_resources", "~>1.4"
   s.add_development_dependency "has_scope", "~>0.6.0.rc"
@@ -26,8 +26,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pundit", "~>0.2"
   s.add_development_dependency "draper", "~>1.3"
   s.add_development_dependency "devise", "~>3.2"
-  s.add_development_dependency "jquery-rails"
-  s.add_development_dependency "faker"
-  s.add_development_dependency "pry-rails"
-  s.add_development_dependency "database_cleaner"
+  s.add_development_dependency "jquery-rails", "~>3.0"
+  s.add_development_dependency "faker", "~>1.2"
+  s.add_development_dependency "pry-rails", "~>0.3"
+  s.add_development_dependency "database_cleaner", "~>1.1"
 end
