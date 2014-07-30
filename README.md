@@ -34,7 +34,8 @@ Available modules
 ### Inherited
 
 This module uses
-[inherited_resources](https://github.com/josevalim/inherited_resources) gem.
+[inherited_resources](https://github.com/josevalim/inherited_resources) gem
+(for version >= 1.4.0).
 
 This module deals with String Parameters using Parameters classes.
 
