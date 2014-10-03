@@ -91,6 +91,13 @@ This module uses [has_scope](https://github.com/plataformatec/has_scope) gem.
 This module only works with ActiveRecord because it uses the
 [Eager Loading Associations of Active Record](http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations).
 
+You just need to define a method named includes and add the associations to load.
+
+``` ruby
+def includes
+  [:association]
+end
+```
 
 ### Paginated
 
